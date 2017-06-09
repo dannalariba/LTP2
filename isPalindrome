@@ -13,9 +13,7 @@ False
 
 
 def isPalindrome_v1(word):
-    """
-    v1 compares if reversed string==original string
-    """
+    # v1 compares if reversed string==original string
     return reverser(word) == word
 
 
@@ -37,16 +35,12 @@ def reverser(word):
 
 
 def isPalindrome_v2(word):
-    """
-    v2 compares if first half==2nd half
-    """
+    # v2 compares if first half==2nd half
     return word[:len(word)//2] == reverser(word[len(word) - len(word)//2:])
 
 
 def isPalindrome_v3(word):
-    """
-    v3 checks if first character==last character
-    """
+    # v3 checks if first character==last character
     i = 0
     j = len(word) - 1
 
