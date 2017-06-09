@@ -1,0 +1,70 @@
+#! python3
+# dannaisadork
+
+
+def isPalindrome_v1(word):
+    """(str) -> bool
+    Return True if and only if word is a palindrome.
+
+    >>>isPalindrome_v1('noon')
+    True
+    >>>isPalindrome_v1('racecar')
+    True
+    >>>isPalindrome_v1('dented')
+    False
+    """
+    # v1 compares if reversed string==original string
+    return reverser(word) == word
+
+
+def reverser(word):
+    """(str) -> str
+    Returns reversed version of word
+
+    >>>reverser('hello')
+    'elloh'
+    >>>reverser('a')
+    'a'
+    """
+    drow = ''
+
+    # for each character in "word", add that character to the beginning of "drow"
+    for char in word:
+        drow = char + drow
+    return drow
+
+
+def isPalindrome_v2(word):
+    """(str) -> bool
+    Return True if and only if word is a palindrome.
+
+    >>>isPalindrome_v2('noon')
+    True
+    >>>isPalindrome_v2('racecar')
+    True
+    >>>isPalindrome_v2('dented')
+    False
+    """
+    # v2 compares if first half==2nd half
+    return word[:len(word)//2] == reverser(word[len(word) - len(word)//2:])
+
+
+def isPalindrome_v3(word):
+    """(str) -> bool
+    Return True if and only if word is a palindrome.
+
+    >>>isPalindrome_v3('noon')
+    True
+    >>>isPalindrome_v3('racecar')
+    True
+    >>>isPalindrome_v3('dented')
+    False
+    """
+    # v3 checks if first character==last character
+    i = 0
+    j = len(word) - 1
+
+    while i < j and word[i] == word[j]:
+        i += 1
+        j -= 1
+    return j <= i
